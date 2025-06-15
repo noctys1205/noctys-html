@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réservation d'hôtel</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/reservation.css"/>
+  <link rel="stylesheet" href="css/mediaquery.css"/>
+  <link rel="icon" href="favicon_io/favicon.ico" type="image/x-icon" />
+  <style>
+    /* Prix sous chaque hôtel */
+    .prix-chambres {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0 0;
+      font-size: 0.9em;
+      color: #444;
+      font-family: Arial, sans-serif;
+      text-align: left;
+    }
+    .prix-chambres li {
+      margin-bottom: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header">
+    <h1>Réservez votre oasis à Marrakech</h1>
+    <h2>choix hotel</h2>
+  </header>
+  <ul class="sticky-menu">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="page patrimoine.html">patrimoine</a></li>
+    <li><a href="page de reservation .html">reservation</a></li>
+    <li><a href="page galerie.html">galerie</a></li>
+  </ul>
+  <section id="choix-hotel">
+    <div class="hotel-card" data-hotel="Hotel Atlas">
+      <img src="images/hotel-atlas.jpg" alt="Hotel Atlas" />
+      <p>Hotel Atlas</p>
+      <ul class="prix-chambres">
+        <li>Simple : 50€ / nuit</li>
+        <li>Double : 80€ / nuit</li>
+        <li>Suite : 150€ / nuit</li>
+      </ul>
+    </div>
+    <div class="hotel-card" data-hotel="Riad Oasis">
+      <img src="images/riad-oasis.jpg" alt="Riad Oasis" />
+      <p>Riad Oasis</p>
+      <ul class="prix-chambres">
+        <li>Simple : 60€ / nuit</li>
+        <li>Double : 90€ / nuit</li>
+        <li>Suite : 170€ / nuit</li>
+      </ul>
+    </div>
+    <div class="hotel-card" data-hotel="Palais Marrakech">
+      <img src="images/palais-marrakech.jpg" alt="Palais Marrakech" />
+      <p>Palais Marrakech</p>
+      <ul class="prix-chambres">
+        <li>Simple : 70€ / nuit</li>
+        <li>Double : 110€ / nuit</li>
+        <li>Suite : 200€ / nuit</li>
+      </ul>
+    </div>
+    <div class="hotel-card" data-hotel="Dar El Medina">
+      <img src="images/dar-el-medina.jpg" alt="Dar El Medina" />
+      <p>Dar El Medina</p>
+      <ul class="prix-chambres">
+        <li>Simple : 55€ / nuit</li>
+        <li>Double : 85€ / nuit</li>
+        <li>Suite : 160€ / nuit</li>
+      </ul>
+    </div>
+    <div class="hotel-card" data-hotel="Kasbah Luxury">
+      <img src="images/kasbah-luxury.jpg" alt="Kasbah Luxury" />
+      <p>Kasbah Luxury</p>
+      <ul class="prix-chambres">
+        <li>Simple : 80€ / nuit</li>
+        <li>Double : 130€ / nuit</li>
+        <li>Suite : 220€ / nuit</li>
+      </ul>
+    </div>
+  </section>
+
+  <main id="reservation" style="display:none;">
+    <h2 id="titre-reservation">Réservez votre séjour</h2>
+    <form>
+      <!-- Nouveau champ select hôtel -->
+      <label for="hotel-select">Choisissez votre hôtel :</label>
+      <select id="hotel-select" name="hotel" required>
+        <option value="">-- Sélectionnez un hôtel --</option>
+        <option value="Hotel Atlas">Hotel Atlas</option>
+        <option value="Riad Oasis">Riad Oasis</option>
+        <option value="Palais Marrakech">Palais Marrakech</option>
+        <option value="Dar El Medina">Dar El Medina</option>
+        <option value="Kasbah Luxury">Kasbah Luxury</option>
+      </select>
+
+      <fieldset class="form">
+        <legend>Informations personnelles</legend>
+
+        <label for="nom">Nom complet :</label>
+        <input type="text" id="nom" name="nom" required />
+
+        <label for="email">Adresse e-mail :</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="telephone">Téléphone :</label>
+        <input type="tel" id="telephone" name="telephone" />
+
+        <label for="nationalite">Nationalité :</label>
+        <input type="text" id="nationalite" name="nationalite" />
+      </fieldset>
+
+      <fieldset class="form">
+        <legend>Informations sur le séjour</legend>
+
+        <label for="arrivee">Date d'arrivée :</label>
+        <input type="date" id="arrivee" name="arrivee" required />
+
+        <label for="depart">Date de départ :</label>
+        <input type="date" id="depart" name="depart" required />
+
+        <label for="adulte">Nombre d'adultes :</label>
+        <input type="number" id="adulte" name="adulte" min="1" value="1" />
+
+        <label for="enfants">Nombre d'enfants :</label>
+        <input type="number" id="enfants" name="enfants" min="0" value="0" />
+
+        <label for="chambre">Type de chambre :</label>
+        <select id="chambre" name="chambre">
+          <option value="simple">Simple</option>
+          <option value="double">Double</option>
+          <option value="suite">Suite</option>
+        </select>
+      </fieldset>
+
+      <fieldset class="form">
+        <legend>Services supplémentaires</legend>
+
+        <label><input type="checkbox" name="services[]" value="petit-dejeuner" /> Petit déjeuner</label>
+        <label><input type="checkbox" name="services[]" value="navette" /> Navette aéroport</label>
+        <label><input type="checkbox" name="services[]" value="parking" /> Parking</label>
+      </fieldset>
+
+      <fieldset class="form">
+        <legend>Commentaires ou demandes spéciales</legend>
+        <textarea
+          name="commentaire"
+          rows="4"
+          placeholder="Ex : allergie, besoin particulier..."
+        ></textarea>
+      </fieldset>
+
+      <fieldset class="form">
+        <legend>Informations de paiement</legend>
+
+        <label for="methode">Méthode de paiement :</label>
+        <select id="methode" name="methode" required>
+          <option value="">-- Sélectionnez --</option>
+          <option value="visa">💳 Visa</option>
+          <option value="mastercard">💳 Mastercard</option>
+          <option value="paypal">💼 PayPal</option>
+        </select>
+
+        <label for="numero">Numéro de carte :</label>
+        <input
+          type="text"
+          id="numero"
+          name="numero"
+          pattern="\d{16}"
+          maxlength="16"
+          placeholder="1234 5678 9012 3456"
+        />
+
+        <label for="expiration">Date d'expiration :</label>
+        <input type="month" id="expiration" name="expiration" />
+
+        <label for="cvv">CVV :</label>
+        <input
+          type="text"
+          id="cvv"
+          name="cvv"
+          pattern="\d{3}"
+          maxlength="3"
+          placeholder="123"
+        />
+      </fieldset>
+
+      <fieldset class="form">
+        <label>
+          <input type="checkbox" name="conditions" required />
+          J'accepte les conditions générales de réservation
+        </label>
+        <input type="submit" value="Réserver" />
+      </fieldset>
+    </form>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <ul>
+          <li>📍 Adresse : Avenue Hassan II, Marrakech, Maroc</li>
+          <li>📞 Téléphone : +212 5 24 00 00 00</li>
+          <li>
+            ✉️ Email :
+            <a href="mailto:contact@riad-maroc.com">contact@riad-maroc.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Réalisé par</h3>
+        <ul>
+          <li>👨‍💻 Kabore Abdoul Nassir</li>
+          <li>👨‍💻 Traoré Issiaka</li>
+          <li>TP HTML - ESI</li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Riad Marrakech. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Affiche le formulaire quand on clique sur un hôtel
+    document.addEventListener('DOMContentLoaded', () => {
+      const hotelCards = document.querySelectorAll('.hotel-card');
+      const reservationSection = document.getElementById('reservation');
+      const hotelSelect = document.getElementById('hotel-select');
+
+      hotelCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const hotelName = card.getAttribute('data-hotel');
+          reservationSection.style.display = 'block';
+          reservationSection.scrollIntoView({ behavior: 'smooth' });
+          // Remplir automatiquement le select hôtel dans le formulaire
+          hotelSelect.value = hotelName;
+        });
+      });
+    });
+  </script>
+
+  <script src="java script/scripteprincipale.js" defer></script>
+</body>
+</html>
