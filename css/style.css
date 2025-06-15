@@ -478,7 +478,7 @@ input[type="submit"]:focus {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Image dans la case */
+
 .patrimoine-item img {
   width: 100%;
   height: 180px;
@@ -486,7 +486,6 @@ input[type="submit"]:focus {
   display: block;
 }
 
-/* Titre sous l'image */
 .patrimoine-item .content {
   padding: 10px 15px;
   text-align: center;
@@ -508,3 +507,26 @@ input[type="submit"]:focus {
 .patrimoine-item .content h3 a:hover {
   color: #007BFF;
 }
+
+.sticky-menu::after {
+  content: '⟶';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.2rem;
+  pointer-events: none;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .sticky-menu {
+    position: relative;
+  }
+
+  .sticky-menu::after {
+    display: block;
+  }
+}
+
