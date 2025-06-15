@@ -520,6 +520,7 @@ input[type="submit"]:focus {
   display: none;
 }
 /* ------- STICKY MENU ------- */
+/* ------- STICKY MENU ------- */
 .sticky-menu {
   list-style: none;  
   margin: 0;
@@ -595,6 +596,7 @@ input[type="submit"]:focus {
     align-items: center;
     gap: 10px;
     padding: 10px 0;
+    position: relative;
   }
 
   .sticky-menu li {
@@ -607,16 +609,10 @@ input[type="submit"]:focus {
     font-size: 1rem;
     padding: 10px;
   }
-}
 
-
-@media (max-width: 600px) {
-  .sticky-menu {
-    position: relative;
-  }
-
+  /* Supprime tout effet "::after" si présent */
   .sticky-menu::after {
-    display: block;
+    display: none !important;
+    content: none !important;
   }
 }
-
